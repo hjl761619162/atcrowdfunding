@@ -53,23 +53,32 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:if test=""></c:if>
-                            <tr>
-                                <td>1</td>
-                                <td><input type="checkbox"></td>
-                                <td>Lorem</td>
-                                <td>ipsum</td>
-                                <td>dolor</td>
-                                <td>
-                                    <button type="button" class="btn btn-success btn-xs"><i
-                                            class=" glyphicon glyphicon-check"></i></button>
-                                    <button type="button" class="btn btn-primary btn-xs"><i
-                                            class=" glyphicon glyphicon-pencil"></i></button>
-                                    <button type="button" class="btn btn-danger btn-xs"><i
-                                            class=" glyphicon glyphicon-remove"></i></button>
-                                </td>
-                            </tr>
+                            <c:if test="${empty requestScope['PAGE-INFO'].list}">
+                                <tr>
+                                    <td style="text-align: center" colspan="6">抱歉！没有符合您要求的查询结果！</td>
+                                </tr>
+                            </c:if>
+                            <c:if test="${!empty requestScope['PAGE-INFO'].list}">
+                                <c:forEach items="${requestScope['PAGE-INFO'].list}" var="admin" varStatus="myStatus">
+                                    <tr>
+                                        <td>${myStatus.count}</td>
+                                        <td><input type="checkbox"></td>
+                                        <td>${admin.loginAcct}</td>
+                                        <td>${admin.userName}</td>
+                                        <td>${admin.email}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-xs"><i
+                                                    class=" glyphicon glyphicon-check"></i></button>
+                                            <button type="button" class="btn btn-primary btn-xs"><i
+                                                    class=" glyphicon glyphicon-pencil"></i></button>
+                                            <button type="button" class="btn btn-danger btn-xs"><i
+                                                    class=" glyphicon glyphicon-remove"></i></button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:if>
                             </tbody>
+
                             <tfoot>
                             <tr>
                                 <td colspan="6" align="center">
@@ -84,7 +93,6 @@
                                     </ul>
                                 </td>
                             </tr>
-
                             </tfoot>
                         </table>
                     </div>
