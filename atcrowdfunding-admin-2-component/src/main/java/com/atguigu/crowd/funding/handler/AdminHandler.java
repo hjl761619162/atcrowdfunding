@@ -1,6 +1,7 @@
 package com.atguigu.crowd.funding.handler;
 
 import com.atguigu.crowd.funding.entity.Admin;
+import com.atguigu.crowd.funding.entity.ResultEntity;
 import com.atguigu.crowd.funding.service.api.AdminService;
 import com.atguigu.crowd.funding.util.CrowdFundingConstant;
 import com.github.pagehelper.PageInfo;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -17,6 +19,13 @@ public class AdminHandler {
 
     @Autowired
     private AdminService adminService;
+
+    @ResponseBody   //将当前handler方法的返回值作为响应体返回，不经过试图解析器
+    @RequestMapping("/admin/batch/remove")  //请求映射
+    private ResultEntity batchRemove(){
+
+        return null;
+    }
 
     @RequestMapping("/admin/query/for/search")
     public String queryForSearch(
