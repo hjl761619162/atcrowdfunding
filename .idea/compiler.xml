@@ -7,19 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="atcrowdfunding-admin-2-component" />
-        <module name="atcrowdfunding-admin-1-webui" />
         <module name="atcrowdfunding-admin-3-common" />
         <module name="atcrowdfunding-admin-4-entity" />
         <module name="atcrowdfunding-reverse" />
+        <module name="atcrowdfunding-admin-1-webui" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="atcrowdfunding-admin-0-parent" target="1.8" />
+      <module name="atcrowdfunding-admin-0-parent" target="1.5" />
       <module name="atcrowdfunding-admin-1-webui" target="1.8" />
-      <module name="atcrowdfunding-admin-2-component" target="1.8" />
-      <module name="atcrowdfunding-admin-3-common" target="1.8" />
-      <module name="atcrowdfunding-admin-4-entity" target="1.8" />
-      <module name="atcrowdfunding-reverse" target="1.8" />
+      <module name="atcrowdfunding-admin-2-component" target="7" />
+      <module name="atcrowdfunding-admin-3-common" target="1.5" />
+      <module name="atcrowdfunding-admin-4-entity" target="1.5" />
+      <module name="atcrowdfunding-reverse" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

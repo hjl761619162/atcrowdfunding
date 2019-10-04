@@ -82,4 +82,10 @@ public class AdminServiceImpl implements AdminService {
         return new PageInfo<>(list);
     }
 
+    public void batchRemove(List<Integer> adminIdList) {
+        AdminExample adminExample = new AdminExample();
+        adminExample.createCriteria().andIdIn(adminIdList);
+        adminMapper.deleteByExample(adminExample);
+    }
+
 }

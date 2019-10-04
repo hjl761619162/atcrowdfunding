@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,11 +21,19 @@ public class AdminHandler {
     @Autowired
     private AdminService adminService;
 
-    @ResponseBody   //将当前handler方法的返回值作为响应体返回，不经过试图解析器
+    @ResponseBody   //将当前handler方法的返回值作为响应体返回，不经过视图解析器
     @RequestMapping("/admin/batch/remove")  //请求映射
-    private ResultEntity batchRemove(){
+    private ResultEntity<String> batchRemove(@RequestBody List<Integer> adminIdList){
 
-        return null;
+        try {
+            adminService.batchRemove(adminIdList);
+            return ResultEntity.successWithoutData();
+
+        } catch (Exception e) {
+
+            return ResultEntity.failed(null,e.getMessage());
+
+        }
     }
 
     @RequestMapping("/admin/query/for/search")
